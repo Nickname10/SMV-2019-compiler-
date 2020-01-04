@@ -1,0 +1,56 @@
+value: integer globalInteger = 5;
+
+function: integer factorial [integer parm]
+begin
+if (parm>1) then begin 
+		 parm = parm-1;
+	         return (parm+1)*factorial[parm]; 
+	         end
+	    else begin 
+	      	 return 1; 
+	         end  
+end 
+
+function: boolean printCMP [str string1, str string2]
+begin
+
+if (cmp[string1,string2]) then begin
+			       print[string1]; print[" "];  print[string2]; print[" - равны\n"];
+			       end
+			  else begin
+			       print[string1]; print[" "];  print[string2]; print[" - не равны\n"];
+			       end     
+return false;
+end
+
+procedure: globalIntegerPlus5
+begin
+globalInteger=globalInteger+5;
+end
+
+main
+begin
+value: integer positive = 25; 
+value: integer negative = 0-positive*2;
+positive = positive + negative;
+print["Результат выражения 25 + (-25*2): "]; print[positive];
+value: integer binary = 101b;
+value: integer oct = 701o;
+value: integer hex = ffh;
+print["\nЗначение переменной binary, которое равно 101: "]; print[binary];
+print["\nЗначение переменной oct, которое равно 701: "]; print[oct];
+print["\nЗнчение переменной hex, которое равно ff: "]; print[hex];
+value: integer expression = ((5*25 + 10) div 3 * 2) mod 100;
+print["\nЗначение выражения ((5*25 + 10) div 3 * 2) mod 100: "]; print[expression];
+value: str string = "123456789";
+value: integer length = clength[string];
+print["\nДлина строки: "]; print[string]; print[" = "]; print[length]; 
+value: str string1 = "str1";
+value: str string2 = "str2";
+print["\nСравним побайтово несколько строк:\n"];
+printCMP[string1, string2];
+string2 = "str1";
+printCMP[string1, string2];
+print["7 факториал : "]; value: integer result = factorial[7]; print[result];		     
+end
+    
